@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - CampusMart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .profile-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 30px;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-right: 20px;
+        }
+        .profile-stats {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .btn-edit-profile {
+            background-color: #4CAF50;
+            border: none;
+        }
+        .btn-edit-profile:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'campusmart:index' %}">CampusMart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'campusmart:index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'campusmart:profile' %}">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{% url 'campusmart:logout' %}" method="post" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-link nav-link">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <div class="container">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    {{ user.username.0|upper }}
+                </div>
+                <div>
+                    <h2>{{ user.name }}</h2>
+                    <p class="text-muted">{{ user.email }}</p>
+                    <p class="text-muted">Username: {{ user.username }}</p>
+                </div>
+            </div>
+
+            <div class="profile-stats">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <h4>0</h4>
+                        <p class="text-muted">Items Listed</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h4>0</h4>
+                        <p class="text-muted">Items Sold</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h4>0</h4>
+                        <p class="text-muted">Items Purchased</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-edit-profile btn-success">Edit Profile</button>
+            </div>
+
+            <!-- Recent Activity Section -->
+            <h3 class="mt-4 mb-3">Recent Activity</h3>
+            <div class="alert alert-info">
+                You haven't had any activity yet. Start by listing an item or browsing the marketplace!
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 CampusMart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
