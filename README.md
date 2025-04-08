@@ -1,6 +1,7 @@
 # paradigms course project
 
-Kyle Phan, Phoebe Huang, Isabel Ojeda, Lang Li
+Group members: Kyle Phan, Phoebe Huang, Isabel Ojeda, Lang Li
+Group number: 18
 
 ## Setup environment
 
