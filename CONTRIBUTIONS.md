@@ -1,4 +1,4 @@
-**Project contributors:**
+**Project contributors:**<br>
 
 Isabel Ojeda
 - For phase 1, contributed in creating the report and other necessary files. 
