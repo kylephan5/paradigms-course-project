@@ -10,4 +10,4 @@ Phoebe Huang
 - For phase 1, created and implemented feature 1.3. 
 
 Kyle Phan
-- - For phase 1, created and implemented feature 1.2. 
+- For phase 1, created and implemented feature 1.2. 
